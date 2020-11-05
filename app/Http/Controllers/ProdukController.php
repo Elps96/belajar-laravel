@@ -16,7 +16,7 @@ class ProdukController extends Controller
     public function index()
     {
         $data_produk = Produk::all();
-
+        //dd($data_produk);
         return view('produk.index', compact('data_produk'));
     }
 

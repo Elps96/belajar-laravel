@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+dd{{$data_produk}}
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
@@ -61,6 +62,7 @@
                       <th style="width: 20%">Harga</th>
                       <th style="width: 20%">Berat</th>
                       <th style="width: 20%">Deskripsi</th>
+                      <th style="width: 20%">Image</th>
                       <th style="width: 20%">Aksi</th>
                     </tr>
                   </thead>
@@ -72,8 +74,26 @@
                       <td>{{$produk->harga}}</td>
                       <td>{{$produk->berat}}</td>
                       <td>{{$produk->deskripsi}}</td>
-                      
-                      
+                      <td>
+                        <img class="profile-user-img img-fluid img-square" src="/storage/{{$produk->image}}" alt="image produk">
+                      </td>
+                      <td class="project-actions text-right">
+                          <a class="btn btn-info btn-sm" href="/produk/{{$produk->id}}">
+                              <i class="fas fa-folder">
+                              </i>
+                              View
+                          </a>
+                          <a class="btn btn-warning btn-sm" type="submit" href="/produk/{{$produk->id}}/edit">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Edit
+                          </a>
+                          <a class="btn btn-danger btn-sm" type="submit" href="/produk/{{$produk->id}}/destroy" onclick="return confirm('hapus data nama {{$produk->nama}}')">
+                              <i class="fas fa-trash">
+                              </i>
+                              Delete
+                          </a>
+                      </td>
                     </tr>
                     @endforeach
                   </tbody>
@@ -141,8 +161,7 @@
 
                         <div class="form-group">
                             <label for="deskripsi">deskripsi</label>
-                            <textarea name="deskripsi" id="deskripsi" cols="30" rows="10" value="{{old('deskripsi')}}" class="textarea" placeholder="Place some text here"
-                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                            <textarea name="deskripsi" id="deskripsi" cols="30" rows="10" value="{{old('deskripsi')}}" class="textarea" placeholder="Place some text here"></textarea>
                             @error('deskripsi')
                             <div class="invalid-feedback">
                                 {{$message}}

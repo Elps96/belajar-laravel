@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+dd{{$karyawan}}
 <section class="content-header">
   <div class="container-fluid">
     <div class="row">
