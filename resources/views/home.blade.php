@@ -15,6 +15,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    {{ Auth::guard('web')->user()->role }}
                 </div>
             </div>
         </div>
