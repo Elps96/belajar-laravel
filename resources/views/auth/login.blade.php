@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="login-box">
-  <div class="login-logo">
+  <!-- <div class="login-logo">
     <a href="/adminlte/index2.html"><b>Admin</b>LTE</a>
-  </div>
+  </div> -->
   <!-- /.login-logo -->
         <div class="card">
             <div class="card-header">{{ __('Login') }}</div>

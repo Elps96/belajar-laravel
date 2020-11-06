@@ -62,6 +62,26 @@
       </div><!-- /.container-fluid -->
     </section>
 
+      <div class="modal fade" tabindex="-1" role="dialog" id="detail-modal" data-backdrop="false">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title">PERHATIAN</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                      <p><b>PPP</b></p>
+                    
+                  </div>
+                  <div class="modal-footer bg-whitesmoke br">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+
       <div class="modal fade" tabindex="-1" role="dialog" id="konfirmasi-modal" data-backdrop="false">
           <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -147,7 +167,7 @@
                         <div class="col-sm-12">
                           <select class="form-control" name="grade_id" id="grade_id" data-placeholder="Pilih Jenis">
                           @foreach($grade as $grade)
-                              <option name="grade_id" value="{{$grade->id}}" >{{$grade->grade}}</option>
+                            <option name="grade_id" value="{{$grade->id}}" >{{$grade->grade}}</option>
                           @endforeach
                           </select>
 
@@ -236,8 +256,8 @@
           {data:'jenis_kelamin', name:'jenis_kelamin'},
           {data:'tanggal_lahir', name:'tanggal_lahir'},
           {data:'tanggal_masuk', name:'tanggal_masuk'},
-          {data:'grade', name:'grade'},
-          {data:'gaji', name:'gaji'},
+          {data:'grade.grade', name:'grade'},
+          {data:'grade.gaji', name:'gaji'},
           {data:'action', name:'action'},
           
 
@@ -328,6 +348,11 @@
               });
           }
       })
+  });
+
+  $(document).on('click', '.detail-post', function () {
+    dataId = $(this).data('id');
+    $('#detail-modal').modal('show');
   });
 
 

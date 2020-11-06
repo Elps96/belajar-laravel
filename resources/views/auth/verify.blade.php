@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="verify-box">
-    <div class="verify-logo">
+    <!-- <div class="verify-logo">
         <a href="../../index2.html"><b>Admin</b>LTE</a>
-    </div>
+    </div> -->
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

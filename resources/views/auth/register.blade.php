@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="register-box">
-    <div class="register-logo">
+    <!-- <div class="register-logo">
         <a href="../../index2.html"><b>Admin</b>LTE</a>
-    </div>
+    </div> -->
     <div class="card-body register-card-body">
         <p class="login-box-msg">Register a new membership</p>
             <div class="card">

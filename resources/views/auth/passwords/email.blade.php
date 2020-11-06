@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="reset-box">
-    <div class="reset-logo"><a href="/adminlte/index2.html"><b>Admin</b>LTE</a></div>
+    <!-- <div class="reset-logo"><a href="/adminlte/index2.html"><b>Admin</b>LTE</a></div> -->
             <div class="card">
                 <div class="card-header">{{ __('Reset Password') }}</div>
 

@@ -24,15 +24,11 @@ class KaryawanController extends Controller
 
     public function index(Request $request)
     {
+        
         $grade = Grade::all();
+        
+        $data_karyawan = Karyawan::with('grade')->latest()->get();
 
-        $data_karyawan = DB::table('karyawan')
-        ->join('grade', 'karyawan.grade_id', '=', 'grade.id')
-        ->select('karyawan.*','grade.grade', 'grade.gaji')
-        // ->latest();
-        // ->first();
-        ->orderBy('created_at', 'desc')
-        ->get();
         if ($request->ajax()) {
             return datatables()->of($data_karyawan)
             ->addColumn('action', function($data){
@@ -324,27 +320,16 @@ class KaryawanController extends Controller
 
     public function getdatakaryawan()
     {
-        $karyawan = DB::table('karyawan')
-        ->join('grade', 'karyawan.grade_id', '=', 'grade.id')
-        ->select('karyawan.*','grade.grade', 'grade.gaji')
-        ->get();
-        //dd($karyawan);
 
-        return DataTables::of($karyawan)-toJson();
+        // $data_karyawan = DB::table('karyawan')
+        // ->join('grade', 'karyawan.grade_id', '=', 'grade.id')
+        // ->select('karyawan.*','grade.grade', 'grade.gaji')
+        // // ->latest();
+        // // ->first();
+        // ->orderBy('created_at', 'desc')
+        // ->get();
 
-        //$karyawan = Karyawan::select('karyawan.*');
-        //$grade = Grade::select('grade.*');
-
-        // return DataTables::of($karyawan)
-        // ->addColumn('action', function($data){
-        //     $button = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$data->id.'" data-original-title="Edit" class="edit btn btn-info btn-sm edit-post"><i class="far fa-edit"></i> Edit</a>';
-        //     $button .= '&nbsp;&nbsp;';
-        //     $button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm"><i class="far fa-trash-alt"></i> Delete</button>';     
-        //     return $button;
-        // })
-        // ->rawColumns(['action'])
-
-        
-        // ->toJson();
+        $data_karyawan = Karyawan::with('grade')->get();
+        return DataTables::of($data_karyawan)->toJson();
     }
 }
